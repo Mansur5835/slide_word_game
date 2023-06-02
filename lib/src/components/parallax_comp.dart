@@ -6,7 +6,7 @@ import 'package:slide_word_game/src/assets/assets.dart';
 import '../game/slide_word_game.dart';
 
 class ParallaxComp extends ParallaxComponent<SlideWordGame> {
-  double speet = 100;
+  double speed = 100;
 
   @override
   Future<void> onLoad() async {
@@ -15,14 +15,17 @@ class ParallaxComp extends ParallaxComponent<SlideWordGame> {
       ParallaxImageData(Assets.parallaxStars),
     ],
         repeat: ImageRepeat.repeat,
-        baseVelocity: Vector2(0, -speet),
+        baseVelocity: Vector2(0, -speed),
         velocityMultiplierDelta: Vector2(0, 1.5));
+  }
+
+  setSpeet() {
+    speed += 5;
+    parallax!.baseVelocity = Vector2(0, -speed);
   }
 
   @override
   void update(double dt) {
-
-
     super.update(dt);
   }
 }
